@@ -3,9 +3,9 @@
 namespace Galahad\BootForms;
 
 /**
- * @mixin \AdamWathan\Form\FormBuilder
  * @mixin \Galahad\BootForms\BasicFormBuilder
  * @mixin \Galahad\BootForms\HorizontalFormBuilder
+ * @mixin \AdamWathan\Form\FormBuilder
  */
 class BootForm
 {

@@ -5,9 +5,9 @@ namespace Galahad\BootForms\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @mixin \AdamWathan\Form\FormBuilder
  * @mixin \Galahad\BootForms\BasicFormBuilder
  * @mixin \Galahad\BootForms\HorizontalFormBuilder
+ * @mixin \AdamWathan\Form\FormBuilder
  */
 class BootForm extends Facade
 {

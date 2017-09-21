@@ -54,8 +54,6 @@ class FormGroup extends Element
     {
         if (null === $this->helpBlock) {
             $this->helpBlock = new HelpBlock($text);
-        } else {
-            $this->helpBlock->message($text);
         }
 
         return $this;

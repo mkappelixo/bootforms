@@ -9,16 +9,26 @@ use Galahad\BootForms\Elements\OffsetFormGroup;
 
 class HorizontalFormBuilder extends BasicFormBuilder
 {
+    /** @var array */
     protected $columnSizes;
 
+    /** @var FormBuilder */
     protected $builder;
 
+    /**
+     * @param FormBuilder $builder
+     * @param array $columnSizes
+     */
     public function __construct(FormBuilder $builder, $columnSizes = ['lg' => [2, 10]])
     {
         $this->builder = $builder;
         $this->columnSizes = $columnSizes;
     }
 
+    /**
+     * @param array $columnSizes
+     * @return $this
+     */
     public function setColumnSizes($columnSizes)
     {
         $this->columnSizes = $columnSizes;
@@ -26,25 +36,44 @@ class HorizontalFormBuilder extends BasicFormBuilder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function open()
     {
         return $this->builder->open()->addClass('form-horizontal');
     }
 
-    public function button($value, $name = null, $type = "btn-default")
+    /**
+     * @param string $value
+     * @param string $name
+     * @param string $type
+     * @return OffsetFormGroup
+     */
+    public function button($value, $name = null, $type = 'btn-default')
     {
         $button = $this->builder->button($value, $name)->addClass('btn')->addClass($type);
 
         return new OffsetFormGroup($button, $this->columnSizes);
     }
 
-    public function submit($value = "Submit", $type = "btn-default")
+    /**
+     * @param string $value
+     * @param string $type
+     * @return OffsetFormGroup
+     */
+    public function submit($value = 'Submit', $type = 'btn-default')
     {
         $button = $this->builder->submit($value)->addClass('btn')->addClass($type);
 
         return new OffsetFormGroup($button, $this->columnSizes);
     }
 
+    /**
+     * @param $label
+     * @param $name
+     * @return OffsetFormGroup
+     */
     public function checkbox($label, $name)
     {
         $control = $this->builder->checkbox($name);
@@ -53,6 +82,12 @@ class HorizontalFormBuilder extends BasicFormBuilder
         return new OffsetFormGroup($this->wrap($checkGroup), $this->columnSizes);
     }
 
+    /**
+     * @param $label
+     * @param $name
+     * @param null $value
+     * @return OffsetFormGroup
+     */
     public function radio($label, $name, $value = null)
     {
         if (is_null($value)) {
@@ -65,6 +100,12 @@ class HorizontalFormBuilder extends BasicFormBuilder
         return new OffsetFormGroup($this->wrap($checkGroup), $this->columnSizes);
     }
 
+    /**
+     * @param $label
+     * @param $name
+     * @param null $value
+     * @return \Galahad\BootForms\Elements\HorizontalFormGroup
+     */
     public function file($label, $name, $value = null)
     {
         $control = $this->builder->file($name)->value($value);
@@ -83,11 +124,22 @@ class HorizontalFormBuilder extends BasicFormBuilder
         return $formGroup;
     }
 
+    /**
+     * @param $method
+     * @param $parameters
+     * @return mixed
+     */
     public function __call($method, $parameters)
     {
         return call_user_func_array([$this->builder, $method], $parameters);
     }
 
+    /**
+     * @param $label
+     * @param $name
+     * @param $control
+     * @return \Galahad\BootForms\Elements\CheckGroup
+     */
     protected function checkGroup($label, $name, $control)
     {
         $label = $this->builder->label($label, $name)->after($control);
@@ -102,6 +154,12 @@ class HorizontalFormBuilder extends BasicFormBuilder
         return $checkGroup;
     }
 
+    /**
+     * @param $label
+     * @param $name
+     * @param $control
+     * @return \Galahad\BootForms\Elements\GroupWrapper
+     */
     protected function formGroup($label, $name, $control)
     {
         $label = $this->builder->label($label,
@@ -119,6 +177,9 @@ class HorizontalFormBuilder extends BasicFormBuilder
         return $this->wrap($formGroup);
     }
 
+    /**
+     * @return string
+     */
     protected function getLabelClass()
     {
         $class = '';
@@ -129,6 +190,9 @@ class HorizontalFormBuilder extends BasicFormBuilder
         return trim($class);
     }
 
+    /**
+     * @return array
+     */
     protected function getControlSizes()
     {
         $controlSizes = [];

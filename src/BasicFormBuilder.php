@@ -25,6 +25,14 @@ class BasicFormBuilder
     }
 
     /**
+     * @return FormBuilder
+     */
+    public function baseBuilder()
+    {
+        return $this->builder;
+    }
+
+    /**
      * @param $label
      * @param $name
      * @param null $value

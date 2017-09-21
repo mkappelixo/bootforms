@@ -1,7 +1,7 @@
 <?php
 
-use AdamWathan\BootForms\Elements\FormGroup;
-use AdamWathan\BootForms\Elements\HelpBlock;
+use Galahad\BootForms\Elements\FormGroup;
+use Galahad\BootForms\Elements\HelpBlock;
 use AdamWathan\Form\FormBuilder;
 
 class FormGroupTest extends PHPUnit_Framework_TestCase

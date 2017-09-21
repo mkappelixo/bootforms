@@ -1,4 +1,6 @@
-<?php namespace AdamWathan\BootForms\Elements;
+<?php
+
+namespace Galahad\BootForms\Elements;
 
 use AdamWathan\Form\Elements\Element;
 use AdamWathan\Form\Elements\Label;
@@ -19,7 +21,7 @@ class HorizontalFormGroup extends FormGroup
         $html .= $this->renderAttributes();
         $html .= '>';
         $html .= $this->label;
-        $html .= '<div class="' . $this->getControlClass() . '">';
+        $html .= '<div class="'.$this->getControlClass().'">';
         $html .= $this->control;
         $html .= $this->renderHelpBlock();
         $html .= '</div>';
@@ -29,18 +31,20 @@ class HorizontalFormGroup extends FormGroup
         return $html;
     }
 
+    public function __call($method, $parameters)
+    {
+        call_user_func_array([$this->control, $method], $parameters);
+
+        return $this;
+    }
+
     protected function getControlClass()
     {
         $class = '';
         foreach ($this->controlSizes as $breakpoint => $size) {
             $class .= sprintf('col-%s-%s ', $breakpoint, $size);
         }
-        return trim($class);
-    }
 
-    public function __call($method, $parameters)
-    {
-        call_user_func_array([$this->control, $method], $parameters);
-        return $this;
+        return trim($class);
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace AdamWathan\BootForms\Elements;
+<?php
+
+namespace Galahad\BootForms\Elements;
 
 use AdamWathan\Form\Elements\Text;
 
@@ -25,7 +27,19 @@ class InputGroup extends Text
     public function type($type)
     {
         $this->attributes['type'] = $type;
+
         return $this;
+    }
+
+    public function render()
+    {
+        $html = '<div class="input-group">';
+        $html .= $this->renderAddons($this->beforeAddon);
+        $html .= parent::render();
+        $html .= $this->renderAddons($this->afterAddon);
+        $html .= '</div>';
+
+        return $html;
     }
 
     protected function renderAddons($addons)
@@ -37,17 +51,6 @@ class InputGroup extends Text
             $html .= $addon;
             $html .= '</span>';
         }
-
-        return $html;
-    }
-
-    public function render()
-    {
-        $html = '<div class="input-group">';
-        $html .= $this->renderAddons($this->beforeAddon);
-        $html .= parent::render();
-        $html .= $this->renderAddons($this->afterAddon);
-        $html .= '</div>';
 
         return $html;
     }

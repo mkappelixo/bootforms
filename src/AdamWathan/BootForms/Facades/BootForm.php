@@ -1,4 +1,6 @@
-<?php namespace AdamWathan\BootForms\Facades;
+<?php
+
+namespace Galahad\BootForms\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

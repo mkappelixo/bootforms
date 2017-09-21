@@ -1,4 +1,6 @@
-<?php namespace AdamWathan\BootForms\Elements;
+<?php
+
+namespace Galahad\BootForms\Elements;
 
 use AdamWathan\Form\Elements\Element;
 

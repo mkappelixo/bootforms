@@ -1,4 +1,6 @@
-<?php namespace AdamWathan\BootForms;
+<?php
+
+namespace Galahad\BootForms;
 
 use AdamWathan\Form\ErrorStore\IlluminateErrorStore;
 use AdamWathan\Form\FormBuilder;
@@ -7,7 +9,6 @@ use Illuminate\Support\ServiceProvider;
 
 class BootFormsServiceProvider extends ServiceProvider
 {
-
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -28,6 +29,16 @@ class BootFormsServiceProvider extends ServiceProvider
         $this->registerBasicFormBuilder();
         $this->registerHorizontalFormBuilder();
         $this->registerBootForm();
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['bootform'];
     }
 
     protected function registerErrorStore()
@@ -75,15 +86,5 @@ class BootFormsServiceProvider extends ServiceProvider
         $this->app->singleton('bootform', function ($app) {
             return new BootForm($app['bootform.basic'], $app['bootform.horizontal']);
         });
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return ['bootform'];
     }
 }

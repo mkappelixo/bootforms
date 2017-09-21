@@ -1,10 +1,13 @@
-<?php namespace AdamWathan\BootForms\Elements;
+<?php
+
+namespace Galahad\BootForms\Elements;
 
 use AdamWathan\Form\Elements\Label;
 
 class CheckGroup extends FormGroup
 {
     protected $label;
+
     protected $inline = false;
 
     public function __construct(Label $label)
@@ -33,7 +36,7 @@ class CheckGroup extends FormGroup
     {
         $this->inline = true;
 
-        $class = $this->control()->getAttribute('type') . '-inline';
+        $class = $this->control()->getAttribute('type').'-inline';
         $this->label->removeClass('control-label')->addClass($class);
 
         return $this;
@@ -47,6 +50,7 @@ class CheckGroup extends FormGroup
     public function __call($method, $parameters)
     {
         call_user_func_array([$this->label->getControl(), $method], $parameters);
+
         return $this;
     }
 }

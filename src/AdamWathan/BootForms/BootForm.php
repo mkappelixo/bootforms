@@ -1,9 +1,13 @@
-<?php namespace AdamWathan\BootForms;
+<?php
+
+namespace Galahad\BootForms;
 
 class BootForm
 {
     protected $builder;
+
     protected $basicFormBuilder;
+
     protected $horizontalFormBuilder;
 
     public function __construct(BasicFormBuilder $basicFormBuilder, HorizontalFormBuilder $horizontalFormBuilder)
@@ -15,6 +19,7 @@ class BootForm
     public function open()
     {
         $this->builder = $this->basicFormBuilder;
+
         return $this->builder->open();
     }
 
@@ -22,6 +27,7 @@ class BootForm
     {
         $this->horizontalFormBuilder->setColumnSizes($columnSizes);
         $this->builder = $this->horizontalFormBuilder;
+
         return $this->builder->open();
     }
 

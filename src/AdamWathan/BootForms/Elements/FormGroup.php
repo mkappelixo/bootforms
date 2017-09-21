@@ -1,4 +1,6 @@
-<?php namespace AdamWathan\BootForms\Elements;
+<?php
+
+namespace Galahad\BootForms\Elements;
 
 use AdamWathan\Form\Elements\Element;
 use AdamWathan\Form\Elements\Label;
@@ -6,7 +8,9 @@ use AdamWathan\Form\Elements\Label;
 class FormGroup extends Element
 {
     protected $label;
+
     protected $control;
+
     protected $helpBlock;
 
     public function __construct(Label $label, Element $control)
@@ -36,16 +40,8 @@ class FormGroup extends Element
             return;
         }
         $this->helpBlock = new HelpBlock($text);
+
         return $this;
-    }
-
-    protected function renderHelpBlock()
-    {
-        if ($this->helpBlock) {
-            return $this->helpBlock->render();
-        }
-
-        return '';
     }
 
     public function control()
@@ -61,6 +57,16 @@ class FormGroup extends Element
     public function __call($method, $parameters)
     {
         call_user_func_array([$this->control, $method], $parameters);
+
         return $this;
+    }
+
+    protected function renderHelpBlock()
+    {
+        if ($this->helpBlock) {
+            return $this->helpBlock->render();
+        }
+
+        return '';
     }
 }

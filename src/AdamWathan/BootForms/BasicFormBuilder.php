@@ -1,11 +1,12 @@
-<?php namespace AdamWathan\BootForms;
+<?php
 
-use AdamWathan\BootForms\Elements\CheckGroup;
-use AdamWathan\BootForms\Elements\FormGroup;
-use AdamWathan\BootForms\Elements\GroupWrapper;
-use AdamWathan\BootForms\Elements\HelpBlock;
-use AdamWathan\BootForms\Elements\InputGroup;
+namespace Galahad\BootForms;
+
 use AdamWathan\Form\FormBuilder;
+use Galahad\BootForms\Elements\CheckGroup;
+use Galahad\BootForms\Elements\FormGroup;
+use Galahad\BootForms\Elements\GroupWrapper;
+use Galahad\BootForms\Elements\InputGroup;
 
 class BasicFormBuilder
 {
@@ -14,26 +15,6 @@ class BasicFormBuilder
     public function __construct(FormBuilder $builder)
     {
         $this->builder = $builder;
-    }
-
-    protected function formGroup($label, $name, $control)
-    {
-        $label = $this->builder->label($label)->addClass('control-label')->forId($name);
-        $control->id($name)->addClass('form-control');
-
-        $formGroup = new FormGroup($label, $control);
-
-        if ($this->builder->hasError($name)) {
-            $formGroup->helpBlock($this->builder->getError($name));
-            $formGroup->addClass('has-error');
-        }
-
-        return $this->wrap($formGroup);
-    }
-
-    protected function wrap($group)
-    {
-        return new GroupWrapper($group);
     }
 
     public function text($label, $name, $value = null)
@@ -67,6 +48,11 @@ class BasicFormBuilder
         return $this->formGroup($label, $name, $control);
     }
 
+    public function inlineCheckbox($label, $name)
+    {
+        return $this->checkbox($label, $name)->inline();
+    }
+
     public function checkbox($label, $name)
     {
         $control = $this->builder->checkbox($name);
@@ -74,28 +60,9 @@ class BasicFormBuilder
         return $this->checkGroup($label, $name, $control);
     }
 
-    public function inlineCheckbox($label, $name)
+    public function inlineRadio($label, $name, $value = null)
     {
-        return $this->checkbox($label, $name)->inline();
-    }
-
-    protected function checkGroup($label, $name, $control)
-    {
-        $checkGroup = $this->buildCheckGroup($label, $name, $control);
-        return $this->wrap($checkGroup->addClass('checkbox'));
-    }
-
-    protected function buildCheckGroup($label, $name, $control)
-    {
-        $label = $this->builder->label($label, $name)->after($control)->addClass('control-label');
-
-        $checkGroup = new CheckGroup($label);
-
-        if ($this->builder->hasError($name)) {
-            $checkGroup->helpBlock($this->builder->getError($name));
-            $checkGroup->addClass('has-error');
-        }
-        return $checkGroup;
+        return $this->radio($label, $name, $value)->inline();
     }
 
     public function radio($label, $name, $value = null)
@@ -107,17 +74,6 @@ class BasicFormBuilder
         $control = $this->builder->radio($name, $value);
 
         return $this->radioGroup($label, $name, $control);
-    }
-
-    public function inlineRadio($label, $name, $value = null)
-    {
-        return $this->radio($label, $name, $value)->inline();
-    }
-
-    protected function radioGroup($label, $name, $control)
-    {
-        $checkGroup = $this->buildCheckGroup($label, $name, $control);
-        return $this->wrap($checkGroup->addClass('radio'));
     }
 
     public function textarea($label, $name)
@@ -167,7 +123,7 @@ class BasicFormBuilder
     public function inputGroup($label, $name, $value = null)
     {
         $control = new InputGroup($name);
-        if (!is_null($value) || !is_null($value = $this->getValueFor($name))) {
+        if (! is_null($value) || ! is_null($value = $this->getValueFor($name))) {
             $control->value($value);
         }
 
@@ -177,5 +133,53 @@ class BasicFormBuilder
     public function __call($method, $parameters)
     {
         return call_user_func_array([$this->builder, $method], $parameters);
+    }
+
+    protected function formGroup($label, $name, $control)
+    {
+        $label = $this->builder->label($label)->addClass('control-label')->forId($name);
+        $control->id($name)->addClass('form-control');
+
+        $formGroup = new FormGroup($label, $control);
+
+        if ($this->builder->hasError($name)) {
+            $formGroup->helpBlock($this->builder->getError($name));
+            $formGroup->addClass('has-error');
+        }
+
+        return $this->wrap($formGroup);
+    }
+
+    protected function wrap($group)
+    {
+        return new GroupWrapper($group);
+    }
+
+    protected function checkGroup($label, $name, $control)
+    {
+        $checkGroup = $this->buildCheckGroup($label, $name, $control);
+
+        return $this->wrap($checkGroup->addClass('checkbox'));
+    }
+
+    protected function buildCheckGroup($label, $name, $control)
+    {
+        $label = $this->builder->label($label, $name)->after($control)->addClass('control-label');
+
+        $checkGroup = new CheckGroup($label);
+
+        if ($this->builder->hasError($name)) {
+            $checkGroup->helpBlock($this->builder->getError($name));
+            $checkGroup->addClass('has-error');
+        }
+
+        return $checkGroup;
+    }
+
+    protected function radioGroup($label, $name, $control)
+    {
+        $checkGroup = $this->buildCheckGroup($label, $name, $control);
+
+        return $this->wrap($checkGroup->addClass('radio'));
     }
 }

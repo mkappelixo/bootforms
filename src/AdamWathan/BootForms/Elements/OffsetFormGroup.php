@@ -1,8 +1,11 @@
-<?php namespace AdamWathan\BootForms\Elements;
+<?php
+
+namespace Galahad\BootForms\Elements;
 
 class OffsetFormGroup
 {
     protected $control;
+
     protected $columnSizes;
 
     public function __construct($control, $columnSizes)
@@ -11,10 +14,22 @@ class OffsetFormGroup
         $this->columnSizes = $columnSizes;
     }
 
+    public function setColumnSizes($columnSizes)
+    {
+        $this->columnSizes = $columnSizes;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->render();
+    }
+
     public function render()
     {
         $html = '<div class="form-group">';
-        $html .= '<div class="' . $this->getControlClass() . '">';
+        $html .= '<div class="'.$this->getControlClass().'">';
         $html .= $this->control;
         $html .= '</div>';
 
@@ -23,9 +38,10 @@ class OffsetFormGroup
         return $html;
     }
 
-    public function setColumnSizes($columnSizes)
+    public function __call($method, $parameters)
     {
-        $this->columnSizes = $columnSizes;
+        call_user_func_array([$this->control, $method], $parameters);
+
         return $this;
     }
 
@@ -35,17 +51,7 @@ class OffsetFormGroup
         foreach ($this->columnSizes as $breakpoint => $sizes) {
             $class .= sprintf('col-%s-offset-%s col-%s-%s ', $breakpoint, $sizes[0], $breakpoint, $sizes[1]);
         }
+
         return trim($class);
-    }
-
-    public function __toString()
-    {
-        return $this->render();
-    }
-
-    public function __call($method, $parameters)
-    {
-        call_user_func_array([$this->control, $method], $parameters);
-        return $this;
     }
 }

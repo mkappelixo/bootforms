@@ -2,18 +2,29 @@
 
 namespace Galahad\BootForms\Elements;
 
+use AdamWathan\Form\Elements\Element;
+
 class GroupWrapper
 {
+    /** @var FormGroup */
     protected $formGroup;
 
+    /** @var Element */
     protected $target;
 
-    public function __construct($formGroup)
+    /**
+     * @param $formGroup
+     */
+    public function __construct(FormGroup $formGroup)
     {
         $this->formGroup = $formGroup;
         $this->target = $formGroup->control();
     }
 
+    /**
+     * @param $text
+     * @return $this
+     */
     public function helpBlock($text)
     {
         $this->formGroup->helpBlock($text);
@@ -21,16 +32,26 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function __toString()
     {
         return $this->render();
     }
 
+    /**
+     * @return string
+     */
     public function render()
     {
         return $this->formGroup->render();
     }
 
+    /**
+     * @param $class
+     * @return $this
+     */
     public function addGroupClass($class)
     {
         $this->formGroup->addClass($class);
@@ -38,6 +59,10 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @param $class
+     * @return $this
+     */
     public function removeGroupClass($class)
     {
         $this->formGroup->removeClass($class);
@@ -45,6 +70,11 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @param $attribute
+     * @param $value
+     * @return $this
+     */
     public function groupData($attribute, $value)
     {
         $this->formGroup->data($attribute, $value);
@@ -52,6 +82,9 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function hideLabel()
     {
         $this->labelClass('sr-only');
@@ -59,6 +92,10 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @param $class
+     * @return $this
+     */
     public function labelClass($class)
     {
         $this->formGroup->label()->addClass($class);
@@ -66,6 +103,10 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @param bool $conditional
+     * @return $this
+     */
     public function required($conditional = true)
     {
         if ($conditional) {
@@ -77,6 +118,9 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function inline()
     {
         $this->formGroup->inline();
@@ -84,6 +128,9 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function group()
     {
         $this->target = $this->formGroup;
@@ -91,6 +138,9 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function label()
     {
         $this->target = $this->formGroup->label();
@@ -98,6 +148,9 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function control()
     {
         $this->target = $this->formGroup->control();
@@ -105,6 +158,11 @@ class GroupWrapper
         return $this;
     }
 
+    /**
+     * @param $method
+     * @param $parameters
+     * @return $this
+     */
     public function __call($method, $parameters)
     {
         call_user_func_array([$this->target, $method], $parameters);

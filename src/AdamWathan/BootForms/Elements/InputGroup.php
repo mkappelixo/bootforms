@@ -6,10 +6,16 @@ use AdamWathan\Form\Elements\Text;
 
 class InputGroup extends Text
 {
+    /** @var string[] */
     protected $beforeAddon = [];
 
+    /** @var string[] */
     protected $afterAddon = [];
 
+    /**
+     * @param string $addon
+     * @return $this
+     */
     public function beforeAddon($addon)
     {
         $this->beforeAddon[] = $addon;
@@ -17,6 +23,10 @@ class InputGroup extends Text
         return $this;
     }
 
+    /**
+     * @param string $addon
+     * @return $this
+     */
     public function afterAddon($addon)
     {
         $this->afterAddon[] = $addon;
@@ -24,6 +34,10 @@ class InputGroup extends Text
         return $this;
     }
 
+    /**
+     * @param string $type
+     * @return $this
+     */
     public function type($type)
     {
         $this->attributes['type'] = $type;
@@ -31,6 +45,9 @@ class InputGroup extends Text
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function render()
     {
         $html = '<div class="input-group">';
@@ -42,6 +59,10 @@ class InputGroup extends Text
         return $html;
     }
 
+    /**
+     * @param string[] $addons
+     * @return string
+     */
     protected function renderAddons($addons)
     {
         $html = '';

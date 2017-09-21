@@ -7,12 +7,21 @@ use AdamWathan\Form\Elements\Label;
 
 class FormGroup extends Element
 {
+    /** @var Label */
     protected $label;
 
+    /** @var Element */
     protected $control;
 
+    /** @var HelpBlock */
     protected $helpBlock;
 
+    /**
+     * Constructor
+     *
+     * @param Label $label
+     * @param Element $control
+     */
     public function __construct(Label $label, Element $control)
     {
         $this->label = $label;
@@ -20,6 +29,9 @@ class FormGroup extends Element
         $this->addClass('form-group');
     }
 
+    /**
+     * @return string
+     */
     public function render()
     {
         $html = '<div';
@@ -34,26 +46,42 @@ class FormGroup extends Element
         return $html;
     }
 
+    /**
+     * @param $text
+     * @return $this
+     */
     public function helpBlock($text)
     {
-        if (isset($this->helpBlock)) {
-            return;
+        if (null === $this->helpBlock) {
+            $this->helpBlock = new HelpBlock($text);
+        } else {
+            $this->helpBlock->message($text);
         }
-        $this->helpBlock = new HelpBlock($text);
 
         return $this;
     }
 
+    /**
+     * @return Element
+     */
     public function control()
     {
         return $this->control;
     }
 
+    /**
+     * @return Label
+     */
     public function label()
     {
         return $this->label;
     }
 
+    /**
+     * @param $method
+     * @param $parameters
+     * @return $this
+     */
     public function __call($method, $parameters)
     {
         call_user_func_array([$this->control, $method], $parameters);
@@ -61,6 +89,9 @@ class FormGroup extends Element
         return $this;
     }
 
+    /**
+     * @return string
+     */
     protected function renderHelpBlock()
     {
         if ($this->helpBlock) {

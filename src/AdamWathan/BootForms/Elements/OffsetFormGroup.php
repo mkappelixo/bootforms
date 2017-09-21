@@ -2,18 +2,30 @@
 
 namespace Galahad\BootForms\Elements;
 
+use AdamWathan\Form\Elements\Element;
+
 class OffsetFormGroup
 {
+    /** @var Element */
     protected $control;
 
+    /** @var array */
     protected $columnSizes;
 
+    /**
+     * @param Element $control
+     * @param array $columnSizes
+     */
     public function __construct($control, $columnSizes)
     {
         $this->control = $control;
         $this->columnSizes = $columnSizes;
     }
 
+    /**
+     * @param array $columnSizes
+     * @return $this
+     */
     public function setColumnSizes($columnSizes)
     {
         $this->columnSizes = $columnSizes;
@@ -21,11 +33,17 @@ class OffsetFormGroup
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->render();
     }
 
+    /**
+     * @return string
+     */
     public function render()
     {
         $html = '<div class="form-group">';
@@ -38,6 +56,11 @@ class OffsetFormGroup
         return $html;
     }
 
+    /**
+     * @param string $method
+     * @param array $parameters
+     * @return $this
+     */
     public function __call($method, $parameters)
     {
         call_user_func_array([$this->control, $method], $parameters);
@@ -45,6 +68,9 @@ class OffsetFormGroup
         return $this;
     }
 
+    /**
+     * @return string
+     */
     protected function getControlClass()
     {
         $class = '';

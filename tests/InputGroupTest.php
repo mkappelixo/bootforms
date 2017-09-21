@@ -2,7 +2,7 @@
 
 use Galahad\BootForms\Elements\InputGroup;
 
-class InputGroupTest extends PHPUnit_Framework_TestCase
+class InputGroupTest extends PHPUnit\Framework\TestCase
 {
     public function testCanRenderBasicText()
     {

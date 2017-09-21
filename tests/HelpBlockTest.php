@@ -2,7 +2,7 @@
 
 use Galahad\BootForms\Elements\HelpBlock;
 
-class HelpBlockTest extends PHPUnit_Framework_TestCase
+class HelpBlockTest extends PHPUnit\Framework\TestCase
 {
     public function setUp()
     {

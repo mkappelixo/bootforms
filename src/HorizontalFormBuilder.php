@@ -2,23 +2,24 @@
 
 namespace Galahad\BootForms;
 
-use AdamWathan\Form\Elements\Element;
-use AdamWathan\Form\Elements\FormOpen;
 use AdamWathan\Form\FormBuilder;
 use Galahad\BootForms\Elements\CheckGroup;
 use Galahad\BootForms\Elements\HorizontalFormGroup;
 use Galahad\BootForms\Elements\OffsetFormGroup;
 
+/**
+ * @mixin \AdamWathan\Form\FormBuilder
+ */
 class HorizontalFormBuilder extends BasicFormBuilder
 {
     /** @var array */
     protected $columnSizes;
 
-    /** @var FormBuilder */
+    /** @var \Galahad\BootForms\FormBuilder */
     protected $builder;
 
     /**
-     * @param FormBuilder $builder
+     * @param \AdamWathan\Form\FormBuilder $builder
      * @param array $columnSizes
      */
     public function __construct(FormBuilder $builder, $columnSizes = ['lg' => [2, 10]])
@@ -39,7 +40,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
     }
 
     /**
-     * @return FormOpen
+     * @return \AdamWathan\Form\Elements\FormOpen
      */
     public function open()
     {
@@ -50,7 +51,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
      * @param string $value
      * @param string $name
      * @param string $type
-     * @return OffsetFormGroup
+     * @return \Galahad\BootForms\Elements\OffsetFormGroup
      */
     public function button($value, $name = null, $type = 'btn-default')
     {
@@ -62,7 +63,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
     /**
      * @param string $value
      * @param string $type
-     * @return OffsetFormGroup
+     * @return \Galahad\BootForms\Elements\OffsetFormGroup
      */
     public function submit($value = 'Submit', $type = 'btn-default')
     {
@@ -74,7 +75,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
     /**
      * @param string $label
      * @param string $name
-     * @return OffsetFormGroup
+     * @return \Galahad\BootForms\Elements\OffsetFormGroup
      */
     public function checkbox($label, $name)
     {
@@ -88,7 +89,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
      * @param string $label
      * @param string $name
      * @param string $value
-     * @return OffsetFormGroup
+     * @return \Galahad\BootForms\Elements\OffsetFormGroup
      */
     public function radio($label, $name, $value = null)
     {
@@ -106,7 +107,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
      * @param string $label
      * @param string $name
      * @param string $value
-     * @return HorizontalFormGroup
+     * @return \Galahad\BootForms\Elements\HorizontalFormGroup
      */
     public function file($label, $name, $value = null)
     {
@@ -141,8 +142,8 @@ class HorizontalFormBuilder extends BasicFormBuilder
     /**
      * @param string $label
      * @param string $name
-     * @param Element $control
-     * @return CheckGroup
+     * @param \AdamWathan\Form\Elements\Element $control
+     * @return \Galahad\BootForms\Elements\CheckGroup
      */
     protected function checkGroup($label, $name, $control)
     {
@@ -161,8 +162,8 @@ class HorizontalFormBuilder extends BasicFormBuilder
     /**
      * @param string $label
      * @param string $name
-     * @param Element $control
-     * @return Elements\GroupWrapper
+     * @param \AdamWathan\Form\Elements\Element $control
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     protected function formGroup($label, $name, $control)
     {

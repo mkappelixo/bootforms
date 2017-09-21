@@ -2,14 +2,12 @@
 
 namespace Galahad\BootForms\Elements;
 
-use AdamWathan\Form\Elements\Element;
-
 class GroupWrapper
 {
     /** @var FormGroup */
     protected $formGroup;
 
-    /** @var Element */
+    /** @var \AdamWathan\Form\Elements\Element */
     protected $target;
 
     /**

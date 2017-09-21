@@ -2,11 +2,10 @@
 
 namespace Galahad\BootForms;
 
-use AdamWathan\Form\Elements\FormOpen;
-
 /**
- * @mixin BasicFormBuilder
- * @mixin HorizontalFormBuilder
+ * @mixin \AdamWathan\Form\FormBuilder
+ * @mixin \Galahad\BootForms\BasicFormBuilder
+ * @mixin \Galahad\BootForms\HorizontalFormBuilder
  */
 class BootForm
 {
@@ -30,7 +29,7 @@ class BootForm
     }
 
     /**
-     * @return FormOpen
+     * @return \AdamWathan\Form\Elements\FormOpen
      */
     public function open()
     {
@@ -41,7 +40,7 @@ class BootForm
 
     /**
      * @param $columnSizes
-     * @return FormOpen
+     * @return \AdamWathan\Form\Elements\FormOpen
      */
     public function openHorizontal($columnSizes)
     {

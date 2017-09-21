@@ -9,15 +9,15 @@ use Galahad\BootForms\Elements\GroupWrapper;
 use Galahad\BootForms\Elements\InputGroup;
 
 /**
- * @mixin FormBuilder
+ * @mixin \AdamWathan\Form\FormBuilder
  */
 class BasicFormBuilder
 {
-    /** @var FormBuilder */
+    /** @var \AdamWathan\Form\FormBuilder */
     protected $builder;
 
     /**
-     * @param FormBuilder $builder
+     * @param \AdamWathan\Form\FormBuilder $builder
      */
     public function __construct(FormBuilder $builder)
     {
@@ -25,7 +25,7 @@ class BasicFormBuilder
     }
 
     /**
-     * @return FormBuilder
+     * @return \AdamWathan\Form\FormBuilder
      */
     public function baseBuilder()
     {
@@ -36,7 +36,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function text($label, $name, $value = null)
     {
@@ -48,7 +48,7 @@ class BasicFormBuilder
     /**
      * @param $label
      * @param $name
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function password($label, $name)
     {
@@ -82,7 +82,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param array $options
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function select($label, $name, $options = [])
     {
@@ -104,7 +104,7 @@ class BasicFormBuilder
     /**
      * @param $label
      * @param $name
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function checkbox($label, $name)
     {
@@ -128,7 +128,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function radio($label, $name, $value = null)
     {
@@ -144,7 +144,7 @@ class BasicFormBuilder
     /**
      * @param $label
      * @param $name
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function textarea($label, $name)
     {
@@ -157,7 +157,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function date($label, $name, $value = null)
     {
@@ -170,7 +170,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function dateTimeLocal($label, $name, $value = null)
     {
@@ -183,7 +183,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function email($label, $name, $value = null)
     {
@@ -196,7 +196,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function file($label, $name, $value = null)
     {
@@ -218,7 +218,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     public function inputGroup($label, $name, $value = null)
     {
@@ -244,7 +244,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param $control
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     protected function formGroup($label, $name, $control)
     {
@@ -263,7 +263,7 @@ class BasicFormBuilder
 
     /**
      * @param $group
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     protected function wrap($group)
     {
@@ -274,7 +274,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param $control
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     protected function checkGroup($label, $name, $control)
     {
@@ -287,7 +287,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param $control
-     * @return CheckGroup
+     * @return \Galahad\BootForms\Elements\CheckGroup
      */
     protected function buildCheckGroup($label, $name, $control)
     {
@@ -307,7 +307,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param $control
-     * @return GroupWrapper
+     * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     protected function radioGroup($label, $name, $control)
     {

@@ -11,8 +11,8 @@ class HorizontalFormGroup extends FormGroup
     protected $controlSizes;
 
     /**
-     * @param Label $label
-     * @param Element $control
+     * @param \AdamWathan\Form\Elements\Label $label
+     * @param \AdamWathan\Form\Elements\Element $control
      * @param array $controlSizes
      */
     public function __construct(Label $label, Element $control, $controlSizes)

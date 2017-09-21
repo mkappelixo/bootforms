@@ -2,12 +2,11 @@
 
 namespace Galahad\BootForms\Elements;
 
-use AdamWathan\Form\Elements\Element;
 use AdamWathan\Form\Elements\Label;
 
 class CheckGroup extends FormGroup
 {
-    /** @var Label */
+    /** @var \AdamWathan\Form\Elements\Label */
     protected $label;
 
     /** @var bool */
@@ -16,7 +15,7 @@ class CheckGroup extends FormGroup
     /**
      * Constructor
      *
-     * @param Label $label
+     * @param \AdamWathan\Form\Elements\Label $label
      */
     public function __construct(Label $label)
     {
@@ -57,7 +56,7 @@ class CheckGroup extends FormGroup
     }
 
     /**
-     * @return Element
+     * @return \AdamWathan\Form\Elements\Element
      */
     public function control()
     {

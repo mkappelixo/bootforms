@@ -2,18 +2,16 @@
 
 namespace Galahad\BootForms\Elements;
 
-use AdamWathan\Form\Elements\Element;
-
 class OffsetFormGroup
 {
-    /** @var Element */
+    /** @var \AdamWathan\Form\Elements\Element */
     protected $control;
 
     /** @var array */
     protected $columnSizes;
 
     /**
-     * @param Element|GroupWrapper $control
+     * @param \AdamWathan\Form\Elements\Element|GroupWrapper $control
      * @param array $columnSizes
      */
     public function __construct($control, $columnSizes)

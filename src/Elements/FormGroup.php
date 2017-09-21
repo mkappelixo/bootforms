@@ -7,10 +7,10 @@ use AdamWathan\Form\Elements\Label;
 
 class FormGroup extends Element
 {
-    /** @var Label */
+    /** @var \AdamWathan\Form\Elements\Label */
     protected $label;
 
-    /** @var Element */
+    /** @var \AdamWathan\Form\Elements\Element */
     protected $control;
 
     /** @var HelpBlock */
@@ -19,8 +19,8 @@ class FormGroup extends Element
     /**
      * Constructor
      *
-     * @param Label $label
-     * @param Element $control
+     * @param \AdamWathan\Form\Elements\Label $label
+     * @param \AdamWathan\Form\Elements\Element $control
      */
     public function __construct(Label $label, Element $control)
     {
@@ -60,7 +60,7 @@ class FormGroup extends Element
     }
 
     /**
-     * @return Element
+     * @return \AdamWathan\Form\Elements\Element
      */
     public function control()
     {

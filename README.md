@@ -1,13 +1,10 @@
-> **Important: This package is not actively maintained.** For bug fixes and new features, please fork.
-
 BootForms
 ===============
 
-[![This Project Has Been Deprecated.](http://www.repostatus.org/badges/0.1.0/abandoned.svg)](http://www.repostatus.org/#abandoned)
-[![Code Climate](https://codeclimate.com/github/adamwathan/bootforms/badges/gpa.svg)](https://codeclimate.com/github/adamwathan/bootforms)
-[![Coverage Status](https://coveralls.io/repos/adamwathan/bootforms/badge.svg?branch=master)](https://coveralls.io/r/adamwathan/bootforms?branch=master)
-
-BootForms builds on top of my more general [Form](https://github.com/adamwathan/form) package by adding another layer of abstraction to rapidly generate markup for standard Bootstrap 3 forms. Probably not perfect for your super custom branded ready-for-release apps, but a *huge* time saver when you are still in the prototyping stage!
+BootForms builds on top of Adam Wathan's more general [Form](https://github.com/adamwathan/form) package 
+by adding another layer of abstraction to rapidly generate markup for standard Bootstrap 3 forms. 
+Probably not perfect for your super custom branded ready-for-release apps, but a *huge* time saver 
+when you are still in the prototyping stage!
 
 - [Installation](#installing-with-composer)
 - [Using BootForms](#using-bootforms)
@@ -21,58 +18,22 @@ BootForms builds on top of my more general [Form](https://github.com/adamwathan/
 
 ## Installing with Composer
 
-You can install this package via Composer by running this command in your terminal in the root of your project:
+You can install this package via Composer by running this command in your terminal in the root 
+of your project:
 
 ```bash
-composer require adamwathan/bootforms
+composer require galahad/bootforms
 ```
 
 ### Laravel
 
-If you are using Laravel 4 or 5, you can get started very quickly by registering the included service provider.
-
-Modify the `providers` array in `config/app.php` to include the `BootFormsServiceProvider`:
-
-```php
-'providers' => [
-    //...
-    'AdamWathan\BootForms\BootFormsServiceProvider'
-  ],
-```
-
-Add the `BootForm` facade to the `aliases` array in `config/app.php`:
-
-```php
-'aliases' => [
-    //...
-    'BootForm' => 'AdamWathan\BootForms\Facades\BootForm'
-  ],
-```
+Currently Laravel 5.5 is only supported. This package will be auto-discovered.
 
 You can now start using BootForms by calling methods directly on the `BootForm` facade:
 
 ```php
 BootForm::text('Email', 'email');
 ```
-
-### Outside of Laravel
-
-Usage outside of Laravel is a little trickier since there's a bit of a dependency stack you need to build up, but it's not too tricky.
-
-```php
-$formBuilder = new AdamWathan\Form\FormBuilder;
-
-$formBuilder->setOldInputProvider($myOldInputProvider);
-$formBuilder->setErrorStore($myErrorStore);
-$formBuilder->setToken($myCsrfToken);
-
-$basicBootFormsBuilder = new AdamWathan\BootForms\BasicFormBuilder($formBuilder);
-$horizontalBootFormsBuilder = new AdamWathan\BootForms\HorizontalFormBuilder($formBuilder);
-
-$bootForm = new AdamWathan\BootForms\BootForm($basicBootFormsBuilder, $horizontalBootFormsBuilder);
-```
-
-> Note: You must provide your own implementations of `AdamWathan\Form\OldInputInterface` and `AdamWathan\Form\ErrorStoreInterface` when not using the implementations meant for Laravel.
 
 ## Using BootForms
 
@@ -243,7 +204,3 @@ BootForm::open()->action( route('users.update', $user) )->put()
 BootForm::bind($user)
 BootForm::close()
 ```
-
-## Related Resources
-
-- [Laravel Translatable BootForms](https://github.com/Propaganistas/Laravel-Translatable-Bootforms), integrates BootForms with Dimsav's [Laravel Translatable](https://github.com/dimsav/laravel-translatable) package

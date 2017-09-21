@@ -13,7 +13,7 @@ class OffsetFormGroup
     protected $columnSizes;
 
     /**
-     * @param Element $control
+     * @param Element|GroupWrapper $control
      * @param array $columnSizes
      */
     public function __construct($control, $columnSizes)

@@ -2,6 +2,8 @@
 
 namespace Galahad\BootForms;
 
+use AdamWathan\Form\Elements\Element;
+use AdamWathan\Form\Elements\FormOpen;
 use AdamWathan\Form\FormBuilder;
 use Galahad\BootForms\Elements\CheckGroup;
 use Galahad\BootForms\Elements\HorizontalFormGroup;
@@ -37,7 +39,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
     }
 
     /**
-     * @return $this
+     * @return FormOpen
      */
     public function open()
     {
@@ -70,8 +72,8 @@ class HorizontalFormBuilder extends BasicFormBuilder
     }
 
     /**
-     * @param $label
-     * @param $name
+     * @param string $label
+     * @param string $name
      * @return OffsetFormGroup
      */
     public function checkbox($label, $name)
@@ -83,14 +85,14 @@ class HorizontalFormBuilder extends BasicFormBuilder
     }
 
     /**
-     * @param $label
-     * @param $name
-     * @param null $value
+     * @param string $label
+     * @param string $name
+     * @param string $value
      * @return OffsetFormGroup
      */
     public function radio($label, $name, $value = null)
     {
-        if (is_null($value)) {
+        if (null === $value) {
             $value = $label;
         }
 
@@ -101,16 +103,18 @@ class HorizontalFormBuilder extends BasicFormBuilder
     }
 
     /**
-     * @param $label
-     * @param $name
-     * @param null $value
-     * @return \Galahad\BootForms\Elements\HorizontalFormGroup
+     * @param string $label
+     * @param string $name
+     * @param string $value
+     * @return HorizontalFormGroup
      */
     public function file($label, $name, $value = null)
     {
         $control = $this->builder->file($name)->value($value);
-        $label = $this->builder->label($label,
-            $name)->addClass($this->getLabelClass())->addClass('control-label')->forId($name);
+        $label = $this->builder->label($label)
+            ->forId($name)
+            ->addClass($this->getLabelClass())
+            ->addClass('control-label');
 
         $control->id($name);
 
@@ -125,8 +129,8 @@ class HorizontalFormBuilder extends BasicFormBuilder
     }
 
     /**
-     * @param $method
-     * @param $parameters
+     * @param string $method
+     * @param array $parameters
      * @return mixed
      */
     public function __call($method, $parameters)
@@ -135,14 +139,14 @@ class HorizontalFormBuilder extends BasicFormBuilder
     }
 
     /**
-     * @param $label
-     * @param $name
-     * @param $control
-     * @return \Galahad\BootForms\Elements\CheckGroup
+     * @param string $label
+     * @param string $name
+     * @param Element $control
+     * @return CheckGroup
      */
     protected function checkGroup($label, $name, $control)
     {
-        $label = $this->builder->label($label, $name)->after($control);
+        $label = $this->builder->label($label)->forId($name)->after($control);
 
         $checkGroup = new CheckGroup($label);
 
@@ -155,15 +159,14 @@ class HorizontalFormBuilder extends BasicFormBuilder
     }
 
     /**
-     * @param $label
-     * @param $name
-     * @param $control
-     * @return \Galahad\BootForms\Elements\GroupWrapper
+     * @param string $label
+     * @param string $name
+     * @param Element $control
+     * @return Elements\GroupWrapper
      */
     protected function formGroup($label, $name, $control)
     {
-        $label = $this->builder->label($label,
-            $name)->addClass($this->getLabelClass())->addClass('control-label')->forId($name);
+        $label = $this->builder->label($label)->addClass($this->getLabelClass())->addClass('control-label')->forId($name);
 
         $control->id($name)->addClass('form-control');
 

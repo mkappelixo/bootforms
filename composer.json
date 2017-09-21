@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Galahad\\BootForms": "src/"
+      "Galahad\\BootForms\\": "src/"
     }
   },
   "minimum-stability": "stable"

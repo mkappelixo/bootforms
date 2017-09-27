@@ -45,7 +45,7 @@ class BootFormsServiceProvider extends ServiceProvider
     protected function registerBasicFormBuilder()
     {
         $this->app->singleton('galahad.bootforms.basic', function ($app) {
-            return new BasicFormBuilder($app['galahad.form']);
+            return new BasicFormBuilder($app['galahad.forms']);
         });
 
         return $this;
@@ -57,7 +57,7 @@ class BootFormsServiceProvider extends ServiceProvider
     protected function registerHorizontalFormBuilder()
     {
         $this->app->singleton('galahad.bootforms.horizontal', function ($app) {
-            return new HorizontalFormBuilder($app['galahad.form']);
+            return new HorizontalFormBuilder($app['galahad.forms']);
         });
 
         return $this;
@@ -69,7 +69,7 @@ class BootFormsServiceProvider extends ServiceProvider
     protected function registerBootForm()
     {
         $this->app->singleton('galahad.bootforms', function ($app) {
-            return new BootForm($app['bootform.basic'], $app['bootform.horizontal']);
+            return new BootForm($app['galahad.bootforms.basic'], $app['galahad.bootforms.horizontal']);
         });
 
         return $this;

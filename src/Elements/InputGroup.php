@@ -2,7 +2,7 @@
 
 namespace Galahad\BootForms\Elements;
 
-use AdamWathan\Form\Elements\Text;
+use Galahad\Forms\Elements\Text;
 
 class InputGroup extends Text
 {

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @mixin \Galahad\BootForms\BasicFormBuilder
  * @mixin \Galahad\BootForms\HorizontalFormBuilder
- * @mixin \AdamWathan\Form\FormBuilder
+ * @mixin \Galahad\Forms\FormBuilder
  */
 class BootForm extends Facade
 {

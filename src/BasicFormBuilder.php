@@ -2,22 +2,22 @@
 
 namespace Galahad\BootForms;
 
-use AdamWathan\Form\FormBuilder;
+use Galahad\Forms\FormBuilder;
 use Galahad\BootForms\Elements\CheckGroup;
 use Galahad\BootForms\Elements\FormGroup;
 use Galahad\BootForms\Elements\GroupWrapper;
 use Galahad\BootForms\Elements\InputGroup;
 
 /**
- * @mixin \AdamWathan\Form\FormBuilder
+ * @mixin \Galahad\Forms\FormBuilder
  */
 class BasicFormBuilder
 {
-    /** @var \AdamWathan\Form\FormBuilder */
+    /** @var \Galahad\Forms\FormBuilder */
     protected $builder;
 
     /**
-     * @param \AdamWathan\Form\FormBuilder $builder
+     * @param \Galahad\Forms\FormBuilder $builder
      */
     public function __construct(FormBuilder $builder)
     {
@@ -25,7 +25,7 @@ class BasicFormBuilder
     }
 
     /**
-     * @return \AdamWathan\Form\FormBuilder
+     * @return \Galahad\Forms\FormBuilder
      */
     public function baseBuilder()
     {
@@ -36,7 +36,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\Text
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\Text
      */
     public function text($label, $name, $value = null)
     {
@@ -48,7 +48,7 @@ class BasicFormBuilder
     /**
      * @param $label
      * @param $name
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\Password
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\Password
      */
     public function password($label, $name)
     {
@@ -61,7 +61,7 @@ class BasicFormBuilder
      * @param $value
      * @param null $name
      * @param string $type
-     * @return \AdamWathan\Form\Elements\Button
+     * @return \Galahad\Forms\Elements\Button
      */
     public function button($value, $name = null, $type = "btn-default")
     {
@@ -71,7 +71,7 @@ class BasicFormBuilder
     /**
      * @param string $value
      * @param string $type
-     * @return \AdamWathan\Form\Elements\Button
+     * @return \Galahad\Forms\Elements\Button
      */
     public function submit($value = "Submit", $type = "btn-default")
     {
@@ -82,7 +82,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param array $options
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\Select
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\Select
      */
     public function select($label, $name, $options = [])
     {
@@ -94,7 +94,7 @@ class BasicFormBuilder
     /**
      * @param $label
      * @param $name
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\Checkbox
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\Checkbox
      */
     public function inlineCheckbox($label, $name)
     {
@@ -104,7 +104,7 @@ class BasicFormBuilder
     /**
      * @param $label
      * @param $name
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\Checkbox
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\Checkbox
      */
     public function checkbox($label, $name)
     {
@@ -117,7 +117,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\RadioButton
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\RadioButton
      */
     public function inlineRadio($label, $name, $value = null)
     {
@@ -128,7 +128,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\RadioButton
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\RadioButton
      */
     public function radio($label, $name, $value = null)
     {
@@ -144,7 +144,7 @@ class BasicFormBuilder
     /**
      * @param $label
      * @param $name
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\TextArea
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\TextArea
      */
     public function textarea($label, $name)
     {
@@ -157,7 +157,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\Date
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\Date
      */
     public function date($label, $name, $value = null)
     {
@@ -170,7 +170,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\DateTimeLocal
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\DateTimeLocal
      */
     public function dateTimeLocal($label, $name, $value = null)
     {
@@ -183,7 +183,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\Email
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\Email
      */
     public function email($label, $name, $value = null)
     {
@@ -196,7 +196,7 @@ class BasicFormBuilder
      * @param $label
      * @param $name
      * @param null $value
-     * @return \Galahad\BootForms\Elements\GroupWrapper|\AdamWathan\Form\Elements\File
+     * @return \Galahad\BootForms\Elements\GroupWrapper|\Galahad\Forms\Elements\File
      */
     public function file($label, $name, $value = null)
     {

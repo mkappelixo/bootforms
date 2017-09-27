@@ -2,15 +2,15 @@
 
 namespace Galahad\BootForms\Elements;
 
-use AdamWathan\Form\Elements\Element;
-use AdamWathan\Form\Elements\Label;
+use Galahad\Forms\Elements\Element;
+use Galahad\Forms\Elements\Label;
 
 class FormGroup extends Element
 {
-    /** @var \AdamWathan\Form\Elements\Label */
+    /** @var \Galahad\Forms\Elements\Label */
     protected $label;
 
-    /** @var \AdamWathan\Form\Elements\Element */
+    /** @var \Galahad\Forms\Elements\Element */
     protected $control;
 
     /** @var HelpBlock */
@@ -19,8 +19,8 @@ class FormGroup extends Element
     /**
      * Constructor
      *
-     * @param \AdamWathan\Form\Elements\Label $label
-     * @param \AdamWathan\Form\Elements\Element $control
+     * @param \Galahad\Forms\Elements\Label $label
+     * @param \Galahad\Forms\Elements\Element $control
      */
     public function __construct(Label $label, Element $control)
     {
@@ -60,7 +60,7 @@ class FormGroup extends Element
     }
 
     /**
-     * @return \AdamWathan\Form\Elements\Element
+     * @return \Galahad\Forms\Elements\Element
      */
     public function control()
     {

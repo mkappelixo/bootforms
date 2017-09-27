@@ -2,7 +2,7 @@
 
 use Galahad\BootForms\Elements\FormGroup;
 use Galahad\BootForms\Elements\HelpBlock;
-use AdamWathan\Form\FormBuilder;
+use Galahad\Forms\FormBuilder;
 
 class FormGroupTest extends PHPUnit\Framework\TestCase
 {

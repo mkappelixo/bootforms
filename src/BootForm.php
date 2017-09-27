@@ -2,10 +2,12 @@
 
 namespace Galahad\BootForms;
 
+use Galahad\BootForms\Elements\FormOpen;
+
 /**
  * @mixin \Galahad\BootForms\BasicFormBuilder
  * @mixin \Galahad\BootForms\HorizontalFormBuilder
- * @mixin \AdamWathan\Form\FormBuilder
+ * @mixin \Galahad\Forms\FormBuilder
  */
 class BootForm
 {
@@ -29,25 +31,31 @@ class BootForm
     }
 
     /**
-     * @return \AdamWathan\Form\Elements\FormOpen
+     * @return \Galahad\Forms\Elements\FormOpen
      */
-    public function open()
+    public function open($action = null)
     {
         $this->builder = $this->basicFormBuilder;
 
-        return $this->builder->open();
+        $open =  $this->builder->open();
+
+        if ($action) {
+            $open->action($action);
+        }
+
+        return $open;
     }
 
     /**
      * @param $columnSizes
-     * @return \AdamWathan\Form\Elements\FormOpen
+     * @return \Galahad\Forms\Elements\FormOpen
      */
-    public function openHorizontal($columnSizes)
+    public function openHorizontal($columnSizes, $action = null)
     {
         $this->horizontalFormBuilder->setColumnSizes($columnSizes);
         $this->builder = $this->horizontalFormBuilder;
 
-        return $this->builder->open();
+        return $this->builder->open($action);
     }
 
     /**

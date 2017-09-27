@@ -4,14 +4,14 @@ namespace Galahad\BootForms\Elements;
 
 class OffsetFormGroup
 {
-    /** @var \AdamWathan\Form\Elements\Element */
+    /** @var \Galahad\Forms\Elements\Element */
     protected $control;
 
     /** @var array */
     protected $columnSizes;
 
     /**
-     * @param \AdamWathan\Form\Elements\Element|GroupWrapper $control
+     * @param \Galahad\Forms\Elements\Element|GroupWrapper $control
      * @param array $columnSizes
      */
     public function __construct($control, $columnSizes)

@@ -7,7 +7,7 @@ class GroupWrapper
     /** @var FormGroup */
     protected $formGroup;
 
-    /** @var \AdamWathan\Form\Elements\Element */
+    /** @var \Galahad\Forms\Elements\Element */
     protected $target;
 
     /**

@@ -1,7 +1,7 @@
 BootForms
 ===============
 
-BootForms builds on top of Adam Wathan's more general [Form](https://github.com/adamwathan/form) package 
+BootForms builds on top of a more general [Forms](https://github.com/glhd/forms) package 
 by adding another layer of abstraction to rapidly generate markup for standard Bootstrap 3 forms. 
 Probably not perfect for your super custom branded ready-for-release apps, but a *huge* time saver 
 when you are still in the prototyping stage!

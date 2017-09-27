@@ -38,14 +38,14 @@ class BootFormsServiceProvider extends ServiceProvider
     protected function registerBasicFormBuilder()
     {
         $this->app->singleton('bootform.basic', function ($app) {
-            return new BasicFormBuilder($app['adamwathan.form']);
+            return new BasicFormBuilder($app['galahad.form']);
         });
     }
 
     protected function registerHorizontalFormBuilder()
     {
         $this->app->singleton('bootform.horizontal', function ($app) {
-            return new HorizontalFormBuilder($app['adamwathan.form']);
+            return new HorizontalFormBuilder($app['galahad.form']);
         });
     }
 

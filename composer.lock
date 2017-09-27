@@ -4,51 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9abbe6ea534388ddbccf43c0fee11ffd",
+    "content-hash": "4ac74831dd8bae5f633f7b094c8e76eb",
     "packages": [
-        {
-            "name": "adamwathan/form",
-            "version": "v0.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/adamwathan/form.git",
-                "reference": "d44534bf812512daa9d5a3b68d0ef7928def99b8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/adamwathan/form/zipball/d44534bf812512daa9d5a3b68d0ef7928def99b8",
-                "reference": "d44534bf812512daa9d5a3b68d0ef7928def99b8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "illuminate/support": "4.*",
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "3.7.*",
-                "satooshi/php-coveralls": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "AdamWathan\\Form": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Adam Wathan",
-                    "email": "adam.wathan@gmail.com"
-                }
-            ],
-            "description": "A basic framework agnostic form building package with a few extra niceties like remembering old input and retrieving error messages.",
-            "abandoned": true,
-            "time": "2017-07-07T16:13:45+00:00"
-        },
         {
             "name": "doctrine/inflector",
             "version": "v1.2.0",
@@ -115,6 +72,61 @@
                 "string"
             ],
             "time": "2017-07-22T12:18:28+00:00"
+        },
+        {
+            "name": "galahad/forms",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/glhd/forms.git",
+                "reference": "7d1013178c4b8224d36ad758653c6ea2e4813e5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/glhd/forms/zipball/7d1013178c4b8224d36ad758653c6ea2e4813e5f",
+                "reference": "7d1013178c4b8224d36ad758653c6ea2e4813e5f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.5.*",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "6.3.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Galahad\\Forms\\FormsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Galahad\\Forms\\Facades\\Form"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Galahad\\Forms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Wathan",
+                    "email": "adam.wathan@gmail.com"
+                },
+                {
+                    "name": "Chris Morrell",
+                    "homepage": "http://www.cmorrell.com"
+                }
+            ],
+            "description": "Base for builder",
+            "time": "2017-09-27T03:04:45+00:00"
         },
         {
             "name": "illuminate/contracts",
@@ -493,6 +505,49 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "adamwathan/form",
+            "version": "v0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adamwathan/form.git",
+                "reference": "d44534bf812512daa9d5a3b68d0ef7928def99b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adamwathan/form/zipball/d44534bf812512daa9d5a3b68d0ef7928def99b8",
+                "reference": "d44534bf812512daa9d5a3b68d0ef7928def99b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/support": "4.*",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "AdamWathan\\Form": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Wathan",
+                    "email": "adam.wathan@gmail.com"
+                }
+            ],
+            "description": "A basic framework agnostic form building package with a few extra niceties like remembering old input and retrieving error messages.",
+            "abandoned": true,
+            "time": "2017-07-07T16:13:45+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.1.0",

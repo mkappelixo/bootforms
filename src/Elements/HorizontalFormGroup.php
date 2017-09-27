@@ -2,8 +2,8 @@
 
 namespace Galahad\BootForms\Elements;
 
-use AdamWathan\Form\Elements\Element;
-use AdamWathan\Form\Elements\Label;
+use Galahad\Forms\Elements\Element;
+use Galahad\Forms\Elements\Label;
 
 class HorizontalFormGroup extends FormGroup
 {
@@ -11,8 +11,8 @@ class HorizontalFormGroup extends FormGroup
     protected $controlSizes;
 
     /**
-     * @param \AdamWathan\Form\Elements\Label $label
-     * @param \AdamWathan\Form\Elements\Element $control
+     * @param \Galahad\Forms\Elements\Label $label
+     * @param \Galahad\Forms\Elements\Element $control
      * @param array $controlSizes
      */
     public function __construct(Label $label, Element $control, $controlSizes)

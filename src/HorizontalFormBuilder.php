@@ -2,13 +2,13 @@
 
 namespace Galahad\BootForms;
 
-use AdamWathan\Form\FormBuilder;
+use Galahad\Forms\FormBuilder;
 use Galahad\BootForms\Elements\CheckGroup;
 use Galahad\BootForms\Elements\HorizontalFormGroup;
 use Galahad\BootForms\Elements\OffsetFormGroup;
 
 /**
- * @mixin \AdamWathan\Form\FormBuilder
+ * @mixin \Galahad\Forms\FormBuilder
  */
 class HorizontalFormBuilder extends BasicFormBuilder
 {
@@ -19,7 +19,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
     protected $builder;
 
     /**
-     * @param \AdamWathan\Form\FormBuilder $builder
+     * @param \Galahad\Forms\FormBuilder $builder
      * @param array $columnSizes
      */
     public function __construct(FormBuilder $builder, $columnSizes = ['lg' => [2, 10]])
@@ -40,7 +40,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
     }
 
     /**
-     * @return \AdamWathan\Form\Elements\FormOpen
+     * @return \Galahad\Forms\Elements\FormOpen
      */
     public function open()
     {
@@ -142,7 +142,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
     /**
      * @param string $label
      * @param string $name
-     * @param \AdamWathan\Form\Elements\Element $control
+     * @param \Galahad\Forms\Elements\Element $control
      * @return \Galahad\BootForms\Elements\CheckGroup
      */
     protected function checkGroup($label, $name, $control)
@@ -162,7 +162,7 @@ class HorizontalFormBuilder extends BasicFormBuilder
     /**
      * @param string $label
      * @param string $name
-     * @param \AdamWathan\Form\Elements\Element $control
+     * @param \Galahad\Forms\Elements\Element $control
      * @return \Galahad\BootForms\Elements\GroupWrapper
      */
     protected function formGroup($label, $name, $control)

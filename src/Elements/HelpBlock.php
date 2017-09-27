@@ -2,7 +2,7 @@
 
 namespace Galahad\BootForms\Elements;
 
-use AdamWathan\Form\Elements\Element;
+use Galahad\Forms\Elements\Element;
 
 class HelpBlock extends Element
 {

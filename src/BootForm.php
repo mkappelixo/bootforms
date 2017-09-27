@@ -20,6 +20,9 @@ class BootForm
     /** @var HorizontalFormBuilder */
     protected $horizontalFormBuilder;
 
+    /** @var mixed */
+    protected $bound;
+
     /**
      * @param BasicFormBuilder $basicFormBuilder
      * @param HorizontalFormBuilder $horizontalFormBuilder
@@ -43,6 +46,8 @@ class BootForm
             $open->action($action);
         }
 
+        $this->bind();
+
         return $open;
     }
 
@@ -55,7 +60,25 @@ class BootForm
         $this->horizontalFormBuilder->setColumnSizes($columnSizes);
         $this->builder = $this->horizontalFormBuilder;
 
+        $this->bind();
+
         return $this->builder->open($action);
+    }
+
+    /**
+     * @param mixed|null $bound
+     * @return string
+     */
+    public function bind($bound = null)
+    {
+        if (!$this->builder) {
+            $this->bound = $bound;
+        } else {
+            $this->builder->bind($bound ?? $this->bound);
+            $this->bound = null;
+        }
+
+        return '';
     }
 
     /**

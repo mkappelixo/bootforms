@@ -33,9 +33,9 @@ class BootFormsServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'galahad.bootform',
-            'galahad.bootform.basic',
-            'galahad.bootform.horizontal',
+            'galahad.bootforms',
+            'galahad.bootforms.basic',
+            'galahad.bootforms.horizontal',
         ];
     }
 
@@ -44,7 +44,7 @@ class BootFormsServiceProvider extends ServiceProvider
      */
     protected function registerBasicFormBuilder()
     {
-        $this->app->singleton('bootform.basic', function ($app) {
+        $this->app->singleton('galahad.bootforms.basic', function ($app) {
             return new BasicFormBuilder($app['galahad.form']);
         });
 
@@ -56,7 +56,7 @@ class BootFormsServiceProvider extends ServiceProvider
      */
     protected function registerHorizontalFormBuilder()
     {
-        $this->app->singleton('bootform.horizontal', function ($app) {
+        $this->app->singleton('galahad.bootforms.horizontal', function ($app) {
             return new HorizontalFormBuilder($app['galahad.form']);
         });
 
@@ -68,7 +68,7 @@ class BootFormsServiceProvider extends ServiceProvider
      */
     protected function registerBootForm()
     {
-        $this->app->singleton('bootform', function ($app) {
+        $this->app->singleton('galahad.bootforms', function ($app) {
             return new BootForm($app['bootform.basic'], $app['bootform.horizontal']);
         });
 

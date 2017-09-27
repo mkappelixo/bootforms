@@ -18,6 +18,6 @@ class BootForm extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'galahad.bootform';
+        return 'galahad.bootforms';
     }
 }

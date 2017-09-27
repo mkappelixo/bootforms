@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/glhd/bootforms.svg?branch=master)](https://travis-ci.org/glhd/bootforms) [![Coverage Status](https://coveralls.io/repos/github/glhd/bootforms/badge.svg?branch=master)](https://coveralls.io/github/glhd/bootforms?branch=master)
+
 BootForms
 ===============
 

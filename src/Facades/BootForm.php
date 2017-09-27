@@ -5,6 +5,7 @@ namespace Galahad\BootForms\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * @codeCoverageIgnore
  * @mixin \Galahad\BootForms\BasicFormBuilder
  * @mixin \Galahad\BootForms\HorizontalFormBuilder
  * @mixin \Galahad\Forms\FormBuilder

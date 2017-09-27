@@ -4,6 +4,9 @@ namespace Galahad\BootForms;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * @codeCoverageIgnore
+ */
 class BootFormsServiceProvider extends ServiceProvider
 {
     /**

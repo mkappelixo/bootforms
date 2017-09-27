@@ -15,7 +15,7 @@
   "license": "MIT",
   "require": {
     "php": ">=7.0",
-    "galahad/forms": "^1.0.8",
+    "galahad/forms": "^1.0.9",
     "illuminate/support": "5.5.*"
   },
   "require-dev": {

@@ -3,10 +3,23 @@
 BootForms
 ===============
 
-BootForms builds on top of a more general [Forms](https://github.com/glhd/forms) package 
-by adding another layer of abstraction to rapidly generate markup for standard Bootstrap 3 forms. 
+BootForms is a Laravel package to rapidly generate markup for standard Bootstrap 3 forms.
 Probably not perfect for your super custom branded ready-for-release apps, but a *huge* time saver 
 when you are still in the prototyping stage!
+
+## Fork
+
+This package forks abandoned [Adam Wathan's repository](https://github.com/adamwathan/bootforms)
+to provide support for newer Laravel versions as well as following changes over the original
+package:
+
+- support for package autodiscovery
+- improved support for IDE autocompletion (using `laravel-ide-helper`)
+- improved support for model binding
+- changed into Laravel-only package to simplify experience even more
+- dropped support for Laravel versions older than 5.5
+
+## Table of Contents
 
 - [Installation](#installing-with-composer)
 - [Using BootForms](#using-bootforms)
@@ -20,21 +33,11 @@ when you are still in the prototyping stage!
 
 ## Installing with Composer
 
-You can install this package via Composer by running this command in your terminal in the root 
-of your project:
+This package supports Laravel autodiscovery so all you have to do is running this
+command in your terminal in the root of your project:
 
 ```bash
 composer require galahad/bootforms
-```
-
-### Laravel
-
-Currently Laravel 5.5 is only supported. This package will be auto-discovered.
-
-You can now start using BootForms by calling methods directly on the `BootForm` facade:
-
-```php
-BootForm::text('Email', 'email');
 ```
 
 ## Using BootForms
@@ -89,7 +92,7 @@ BootForm::open()->get()->action('/users');
 BootForm::text('First Name', 'first_name')->defaultValue('John Doe');
 ```
 
-For more information about what's possible, check out the documentation for [my basic Form package.](https://github.com/adamwathan/form)
+For more information about what's possible, check out the documentation for the [basic Forms package.](https://github.com/glhd/forms)
 
 ### Reduced Boilerplate
 
@@ -199,7 +202,7 @@ You can add a help block underneath a form element using the `helpBlock()` helpe
 
 #### Model Binding
 
-BootForms makes it easy to bind an object to a form to provide default values. Read more about it [here](https://github.com/adamwathan/form#model-binding).
+BootForms makes it easy to bind an object to a form to provide default values. Read more about it [here](https://github.com/glhd/forms#data-binding).
 
 ```php
 BootForm::open()->action( route('users.update', $user) )->put()

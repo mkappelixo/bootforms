@@ -546,6 +546,13 @@ class BasicFormBuilderTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $result);
     }
 
+    public function testCanSetGroupId()
+    {
+        $expected = '<div class="form-group" id="test-id"><label class="control-label" for="email">Email</label><input type="text" name="email" id="email" class="form-control"></div>';
+        $result = $this->form->text('Email', 'email')->setGroupId('test-id')->render();
+        $this->assertEquals($expected, $result);
+    }
+
     public function testCanRemoveGroupClass()
     {
         $expected = '<div><label class="control-label" for="email">Email</label><input type="text" name="email" id="email" class="form-control"></div>';

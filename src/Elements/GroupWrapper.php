@@ -58,6 +58,17 @@ class GroupWrapper
     }
 
     /**
+     * @param mixed $id
+     * @return $this
+     */
+    public function setGroupId($id)
+    {
+        $this->formGroup->id($id);
+
+        return $this;
+    }
+
+    /**
      * @param $class
      * @return $this
      */

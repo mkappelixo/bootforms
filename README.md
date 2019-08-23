@@ -7,6 +7,16 @@ BootForms is a Laravel package to rapidly generate markup for standard Bootstrap
 Probably not perfect for your super custom branded ready-for-release apps, but a *huge* time saver 
 when you are still in the prototyping stage!
 
+## Check out Aire
+
+This package has been replaced by [Aire](https://github.com/glhd/aire) which is a modern form
+builder with similar features but an improved API, more tests, more documentation, and support
+for non-Bootstrap themes. It uses [Tailwind](https://tailwindcss.com/) by default, but has
+full support for Bootstrap via a plugin.
+
+BootForms is no longer actively maintained. I'll try to merge any bugfixes for the forseeable
+future, but I strongly urge you to check out Aire.
+
 ## Fork
 
 This package forks abandoned [Adam Wathan's repository](https://github.com/adamwathan/bootforms)
